@@ -1,0 +1,179 @@
+* , *::after , *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    display: block;
+}
+ul {
+    list-style: none;
+}
+button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+img {
+    display: block;
+    width: 100%;
+}
+video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+:root{
+    --txt-clr :hsl(187, 100%, 95%) ;
+    --bg-clr:hsl(205, 93%, 83%) ;
+    --note-body :hsl(288, 41%, 69%) ;
+    --note-header :hsl(335, 57%, 46%) ;
+    --note-header-100: hsl(335, 97%, 76%);
+    --btn--clr : hsl(240, 43%, 77%);
+}
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-clr);
+    color: var(--txt-clr);
+    font-size: initial;
+    position: relative;
+}
+
+.btn {
+    background-color: var(--btn--clr);
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    padding: .7em 1em ;
+    border-radius: .5em;
+    color: var(--txt-clr);
+    transition: .4s ease-in-out;
+}
+.btn:hover {
+    scale: 1.3;
+}
+
+.mood {
+    position: absolute;
+    font-size: 20px;
+    left:1rem ;
+    top: 1rem;
+    width: 30px;
+    height: 30px;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--btn--clr);
+    color: var(--txt-clr);
+    cursor: pointer;
+}
+
+
+.container {
+    padding-block: 4rem;
+    padding-inline:1rem;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill , minmax(300px , 1fr)); */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-items: center;
+    justify-content: center;
+
+}
+
+.note {
+    width: min(100% , 500px);
+    
+}
+
+.note__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--note-header);
+    padding: .7rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    gap: 2rem;
+}
+.flex-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.note i{
+    font-size: 18px;
+    cursor: pointer;
+}
+.note i:hover{
+    color: var(--note-header-100);
+}
+.note__title {
+    color: var(--txt-clr);
+    outline: none;
+    flex: 1;
+    overflow: hidden;
+}
+.note__body{
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    font-size: 24px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--note-body);
+    min-height: 10ch;
+    max-height: 50ch;  
+    overflow-y: hidden;
+    outline: none;
+}
+
+
+.note__header i.active {
+    color: var(--note-header-100);
+}
+.toggler-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.toggler-container :nth-child(n),
+.toggler-container.active :nth-child(n){
+    transition: .4s ease-in-out;
+}
+.toggler-container :nth-child(1){
+    position: absolute;
+    scale: 0;
+}
+.toggler-container.active :nth-child(2){
+    scale: 0;
+}
+.toggler-container.active :nth-child(1){
+    scale: 1;
+}
+
+.dark{
+    --txt-clr :hsl(0, 0%, 99%) ;
+    --bg-clr:hsl(204, 86%, 6%) ;
+    --note-body :hsl(230, 5%, 26%) ;
+    --note-header :hsl(309, 8%, 17%) ;
+    --note-header-100: hsl(309, 8%, 50%) ;
+    --btn--clr : hsl(165, 36%, 43%);
+}
